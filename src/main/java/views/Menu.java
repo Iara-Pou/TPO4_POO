@@ -21,10 +21,10 @@ public class Menu extends JFrame {
         setSize(500, 400);
 
         contenidoMenu = new JPanel(new GridLayout(4, 1, 0, 10));
-        registrarFuncion = new JButton("Agregar Tarjeta");
-        registrarPelicula = new JButton("Agregar Cliente");
-        consultarPeliculas = new JButton("Agregar Consumo");
-        emitirReporteRecaudacion = new JButton("Listar Clientes");
+        registrarFuncion = new JButton("Registrar Función");
+        registrarPelicula = new JButton("Registrar Pelicula");
+        consultarPeliculas = new JButton("Consultar Peliculas");
+        emitirReporteRecaudacion = new JButton("Emitir Reporte Recaudación");
 
         manejarRedireccion();
 
