@@ -53,7 +53,6 @@ public class Menu extends JFrame {
         consultarPeliculas.addActionListener(e -> {
             String genero = seleccionarGenero();
             SwingUtilities.invokeLater(() -> new ConsultarPeliculas(genero));
-            SwingUtilities.invokeLater(() -> new ConsultarPeliculas(genero));
         });
 
         emitirReporteRecaudacion.addActionListener(e -> SwingUtilities.invokeLater(EmitirReporteRecaudacion::new));

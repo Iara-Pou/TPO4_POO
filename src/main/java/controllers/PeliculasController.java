@@ -1,5 +1,6 @@
 package controllers;
 
+import dtos.MostrarPeliculaDTO;
 import models.Pelicula;
 import models.enums.TipoGenero;
 import models.enums.TipoProyeccion;
@@ -34,4 +35,17 @@ public class PeliculasController {
         // TODO implement here
     }
 
+    public List<MostrarPeliculaDTO> getPeliculasByGenero(String genero){
+        List<MostrarPeliculaDTO> listaPeliculas = new ArrayList<>();
+        for (Pelicula pelicula: peliculas){
+            if (pelicula.getGeneroID().toString().equals(genero)){
+                listaPeliculas.add(toDto(pelicula));
+            }
+        }
+        return listaPeliculas;
+    }
+
+    private MostrarPeliculaDTO toDto(Pelicula pelicula){
+        return new MostrarPeliculaDTO(pelicula.getDirector(), pelicula.getDuracionEnMinutos(), pelicula.getNombrePelicula(), pelicula.getTipo().toString(), pelicula.getActores());
+    }
 }

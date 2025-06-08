@@ -69,4 +69,23 @@ public class Pelicula {
         return 0;
     }
 
+    public String getNombrePelicula() {
+        return nombrePelicula;
+    }
+
+    public int getDuracionEnMinutos() {
+        return duracionEnMinutos;
+    }
+
+    public String getDirector() {
+        return director;
+    }
+
+    public List<String> getActores() {
+        return actores;
+    }
+
+    public TipoProyeccion getTipo() {
+        return tipo;
+    }
 }
