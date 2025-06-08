@@ -5,6 +5,4 @@ public class VentaDTO {
     public VentaDTO(FuncionDTO funcion) {
 
     }
-
-
 }

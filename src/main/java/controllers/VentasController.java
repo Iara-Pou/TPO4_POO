@@ -32,7 +32,7 @@ public class VentasController {
         return instancia;
     }
 
-    private  FuncionController funcionController = FuncionController.getInstancia();
+    private FuncionController funcionController = FuncionController.getInstancia();
 
     public List<Venta> getVentas() {
         return ventas;

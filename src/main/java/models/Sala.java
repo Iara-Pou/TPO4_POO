@@ -3,34 +3,29 @@ package models;
 import java.util.*;
 
 /**
- * 
+ *
  */
 public class Sala {
-
-    /**
-     * Default constructor
-     */
     public Sala(int salaID, String denominacion, int asientos) {
-    	this.asientos = asientos;
-    	this.denominacion = denominacion;
-    	this.salaID = salaID;
+        this.asientos = asientos;
+        this.denominacion = denominacion;
+        this.salaID = salaID;
     }
 
     /**
-     * 
+     *
      */
     private int salaID;
 
     /**
-     * 
+     *
      */
     private String denominacion;
 
     /**
-     * 
+     *
      */
     private int asientos;
-
 
 
     /**
