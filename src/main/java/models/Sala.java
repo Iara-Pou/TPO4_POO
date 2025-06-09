@@ -51,4 +51,7 @@ public class Sala {
         return this.asientos;
     }
 
+    public String getDenominacion() {
+        return denominacion;
+    }
 }

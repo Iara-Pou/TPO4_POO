@@ -6,7 +6,7 @@ import models.enums.TipoProyeccion;
 import java.util.*;
 
 public class Pelicula {
-    public Pelicula(TipoGenero generoID, String director, int duracionEnMinutos, String nombrePelicula, TipoProyeccion tipo, List<String> actores, CondicionesDescuento descuento) {
+    public Pelicula(TipoGenero generoID, String nombrePelicula, int duracionEnMinutos, String director, TipoProyeccion tipo, List<String> actores, CondicionesDescuento descuento) {
         this.actores = actores;
         this.director = director;
         this.duracionEnMinutos = duracionEnMinutos;

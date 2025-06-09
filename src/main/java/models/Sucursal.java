@@ -28,7 +28,7 @@ public class Sucursal {
      */
     private String direccion;
 
-    private List<Sala> salas;
+    private ArrayList<Sala> salas;
 
 
     /**
@@ -39,4 +39,15 @@ public class Sucursal {
         return 0;
     }
 
+    public String getDenominacion() {
+        return denominacion;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public ArrayList<Sala> getSalas() {
+        return salas;
+    }
 }

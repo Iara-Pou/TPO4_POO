@@ -19,6 +19,10 @@ public class PeliculasController {
     private PeliculasController() {
         peliculas = new ArrayList<>();
         peliculas.add(new Pelicula(TipoGenero.Suspenso, "Pelicula1", 180, "Director X", TipoProyeccion.DosD, Arrays.asList("Actriz Principal", "Actor Secundario"), null));
+        peliculas.add(new Pelicula(TipoGenero.Drama, "Pelicula2", 190, "Director Y", TipoProyeccion.TresD, Arrays.asList("Actriz Principal", "Actor Secundario"), null));
+        peliculas.add(new Pelicula(TipoGenero.Terror, "Pelicula3", 165, "Director J", TipoProyeccion.TresDMax, Arrays.asList("Actriz Principal", "Actor Secundario"), null));
+        peliculas.add(new Pelicula(TipoGenero.Biografica, "Pelicula4", 120, "Director K", TipoProyeccion.CuatroD, Arrays.asList("Actriz Principal", "Actor Secundario"), null));
+        peliculas.add(new Pelicula(TipoGenero.Drama, "Pelicula5", 95, "Director L", TipoProyeccion.DosD, Arrays.asList("Actriz Principal", "Actor Secundario"), null));
     }
 
     public static synchronized PeliculasController getInstancia() {
@@ -47,5 +51,16 @@ public class PeliculasController {
 
     private MostrarPeliculaDTO toDto(Pelicula pelicula){
         return new MostrarPeliculaDTO(pelicula.getDirector(), pelicula.getDuracionEnMinutos(), pelicula.getNombrePelicula(), pelicula.getTipo().toString(), pelicula.getActores());
+    }
+
+    public Pelicula obtenerPelicula(String nombre)
+    {
+        Pelicula pelicula = null;
+
+        for(Pelicula current: this.peliculas){
+            if(current.getNombrePelicula().equals(nombre)) pelicula = current;
+        }
+
+        return pelicula;
     }
 }

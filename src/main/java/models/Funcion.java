@@ -6,7 +6,7 @@ import java.util.*;
  *
  */
 public class Funcion {
-    public Funcion(Date fecha, int funcionID, String horario, List<Entrada> entradas, Sala sala, Pelicula pelicula) {
+    public Funcion(Date fecha, UUID funcionID, String horario, List<Entrada> entradas, Sala sala, Pelicula pelicula) {
         this.entradas = entradas;
         this.fecha = fecha;
         this.funcionID = funcionID;
@@ -28,7 +28,7 @@ public class Funcion {
     /**
      *
      */
-    private int funcionID;
+    private UUID funcionID;
 
     /**
      *
@@ -91,7 +91,7 @@ public class Funcion {
     /**
      * @return
      */
-    public int getFuncionID() {
+    public UUID getFuncionID() {
 
         return this.funcionID;
     }
