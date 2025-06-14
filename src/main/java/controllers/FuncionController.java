@@ -8,6 +8,7 @@ import models.Sala;
 import models.enums.TipoGenero;
 import models.enums.TipoProyeccion;
 
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 /**
@@ -20,7 +21,7 @@ public class FuncionController {
 
     private FuncionController() {
         funciones = new ArrayList<>();
-        funciones.add(new Funcion(new Date(), 1, "11:00", new ArrayList<Entrada>(), new Sala(0, null, 0),
+        funciones.add(new Funcion(new Date(), UUID.randomUUID() , "11:00", new ArrayList<Entrada>(), new Sala(0, null, 0),
                 new Pelicula(TipoGenero.Terror, "steven spielberg", 120, "Tiburon", TipoProyeccion.DosD, new ArrayList<>(), null)));
 
     }
@@ -91,5 +92,39 @@ public class FuncionController {
             }
         }
         return funciones;
+    }
+
+    /**
+     * Agrega la función a la lista de funciones
+     * @param funcionDTO
+     * @return
+     * @throws Exception
+     */
+    public String agregarFuncion(FuncionDTO funcionDTO) throws Exception
+    {
+        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+        SucursalController sucursales = SucursalController.getInstancia();
+        PeliculasController peliculas = PeliculasController.getInstancia();
+
+        Date fecha = format.parse(funcionDTO.getFecha());
+        UUID funcionID = UUID.randomUUID();
+
+        Sala sala = sucursales.obtenerSala(funcionDTO.getSala());
+        Pelicula pelicula = peliculas.obtenerPelicula(funcionDTO.getPelicula());
+
+        if(sala == null) throw new Exception("La sala especficada no existe o no está disponible");
+        if(pelicula == null) throw new Exception("La pelicula no fue encontrada");
+
+        Funcion funcion = new Funcion(
+            fecha,
+            funcionID,
+            funcionDTO.getHora(),
+            new ArrayList<Entrada>(),
+            sala,
+            pelicula
+        );
+
+        this.funciones.add(funcion);
+        return funcionID.toString();
     }
 }

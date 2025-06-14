@@ -1,5 +1,6 @@
 package controllers;
 
+import models.Sala;
 import models.Sucursal;
 
 import java.util.*;
@@ -11,10 +12,14 @@ import java.util.*;
 public class SucursalController {
     private List<Sucursal> sucursales;
     private static SucursalController instancia = null;
+    private List<Sala> salas;
 
     public SucursalController() {
         sucursales = new ArrayList<>();
-        sucursales.add(new Sucursal(1, "Barracas", "Av Montes de Oca 1100", null));
+        salas = new ArrayList<Sala>();
+
+        salas.add(new Sala(1,"Sala 1",20));
+        sucursales.add(new Sucursal(1, "Barracas", "Av Montes de Oca 1100", (ArrayList<Sala>) this.salas));
     }
 
     public static synchronized SucursalController getInstancia() {
@@ -41,6 +46,25 @@ public class SucursalController {
      */
     public void agregarSala(int idSucursal, int salaID, String denom, int nroasientos) {
         // TODO implement here
+    }
+
+    /**
+     * Obtiene una sala en base a una denominación
+     * @param denominacion
+     * @return
+     */
+    public Sala obtenerSala(String denominacion)
+    {
+        Sala sala = null;
+
+        for(Sucursal currentSucursal : this.sucursales)
+        {
+            for(Sala currentSala: currentSucursal.getSalas()){
+                if(currentSala.getDenominacion().equals(denominacion)) sala = currentSala;
+            }
+        }
+
+        return sala;
     }
 
 }

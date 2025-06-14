@@ -41,8 +41,7 @@ public class Menu extends JFrame {
     private void manejarRedireccion() {
         //Si las funcionalidades que necesitan un género seleccionado, las hacemos pasar por un JDialog previo
         registrarFuncion.addActionListener(e -> {
-            String genero = seleccionarGenero();
-            SwingUtilities.invokeLater(() -> new RegistrarFuncion(genero));
+            SwingUtilities.invokeLater(RegistrarFuncion::new);
         });
 
         registrarPelicula.addActionListener(e -> {
