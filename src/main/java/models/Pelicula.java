@@ -1,5 +1,6 @@
 package models;
 
+import dtos.MostrarRecaudacionDTO;
 import models.enums.TipoGenero;
 import models.enums.TipoProyeccion;
 
