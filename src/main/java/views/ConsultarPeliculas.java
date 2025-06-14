@@ -10,12 +10,13 @@ import java.util.List;
 
 public class ConsultarPeliculas extends JFrame {
     private DefaultTableModel tablaModelo;
-    private JTable tablaConsumos;
+    private JTable tablaPeliculas;
     PeliculasController peliculasController = PeliculasController.getInstancia();
     public ConsultarPeliculas(String genero) {
         setTitle("Mostrar películas - " + genero);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLayout(new BorderLayout());
+
         setSize(500, 400);
 
         List<MostrarPeliculaDTO> mostrarPeliculaDTO = peliculasController.getPeliculasByGenero(genero);
@@ -34,8 +35,9 @@ public class ConsultarPeliculas extends JFrame {
                         peliculaDTO.getTipo()
                 });
             }
-            tablaConsumos = new JTable(tablaModelo);
-            JScrollPane scrollPane = new JScrollPane(tablaConsumos);
+            tablaPeliculas = new JTable(tablaModelo);
+            JScrollPane scrollPane = new JScrollPane(tablaPeliculas);
+            scrollPane.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
             add(scrollPane, BorderLayout.CENTER);
         }
         setVisible(true);
