@@ -58,18 +58,19 @@ public class VentasController {
      * @return
      */
     public float recaudacionPorPelicula(int peliculaID) {
+        float totalRecaudado = 0.0f;
         List<Funcion> funciones = funcionController.buscarPeliculaPorFuncion(peliculaID);
-        if (funciones.isEmpty()) {
-            return 0;
-        }
-        float totalrecuadado = 0.0f;
-        for (Funcion funcion : funciones) {
-            Venta venta = buscarVentaPorFuncion(funcion);
-            if (Objects.isNull(venta)) {
-                totalrecuadado = +venta.calcularMontoDeLaVentaPorFuncionCombos();
+
+        if (!funciones.isEmpty()) {
+            for (Funcion funcion : funciones) {
+                Venta venta = buscarVentaPorFuncion(funcion);
+                if (!Objects.isNull(venta)) {
+                    totalRecaudado += venta.calcularMontoDeLaVentaPorFuncionCombos();
+                }
             }
         }
-        return totalrecuadado;
+
+        return totalRecaudado;
     }
 
     /**

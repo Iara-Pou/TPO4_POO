@@ -93,7 +93,7 @@ public class Venta {
     public float calcularMontoPorComboDeVenta() {
         float total = 0.0f;
         for (Combo combo : getListaComboID()) {
-            total = +(combo.getPrecio() - (combo.getPrecio() *
+            total += (combo.getPrecio() - (combo.getPrecio() *
                     CondicionesDescuento.getDescuentoPorTarjeta(tarjetaDescuento.getTipoTarjeta())));
         }
         return total;
