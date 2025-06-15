@@ -17,6 +17,9 @@ public class SucursalController {
     public SucursalController() {
         sucursales = new ArrayList<>();
         salas = new ArrayList<>();
+
+        salas.add(new Sala(1,"Sala 1",20));
+        sucursales.add(new Sucursal(1, "Barracas", "Av Montes de Oca 1100", (ArrayList<Sala>) this.salas));
     }
 
     public static synchronized SucursalController getInstancia() {

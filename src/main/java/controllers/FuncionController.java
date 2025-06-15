@@ -21,7 +21,10 @@ public class FuncionController {
 
     private FuncionController() {
         funciones = new ArrayList<>();
-   }
+        funciones.add(new Funcion(new Date(), UUID.randomUUID() , "11:00", new ArrayList<Entrada>(), new Sala(0, null, 0),
+                new Pelicula(1, TipoGenero.Terror, "steven spielberg", 120, "Tiburon", TipoProyeccion.DosD, new ArrayList<>(), null)));
+
+    }
 
     public static synchronized FuncionController getInstancia() {
         if (instancia == null) {

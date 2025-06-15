@@ -2,7 +2,6 @@ package controllers;
 
 import models.Sala;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -13,8 +12,6 @@ class SucursalControllerTest {
     @BeforeAll
     public static void setUp() {
         controller = SucursalController.getInstancia();
-        controller.agregarSucursal(1, "Barracas", "Av Montes de Oca 1100");
-        controller.agregarSala(1,1, "Sala 1",20);
     }
 
     @Test

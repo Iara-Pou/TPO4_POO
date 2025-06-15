@@ -29,14 +29,6 @@ class VentasControllerTest {
         ventasController = VentasController.getInstancia();
         sucursalController = SucursalController.getInstancia();
         peliculasController = PeliculasController.getInstancia();
-
-        // Crear sucursal, sala, película y función
-        sucursalController.agregarSucursal(1, "Barracas", "Av Montes de Oca 1100");
-        sucursalController.agregarSala(1,1, "Sala 1",20);
-        peliculasController.agregarPelicula(new Pelicula(1, TipoGenero.Suspenso, "Pelicula1", 180, "Director X", TipoProyeccion.DosD, Arrays.asList("Actriz Principal", "Actor Secundario"), null));
-
-        FuncionDTO funcionDTO = new FuncionDTO("Sala 1", "20:20", "10/10/2000", "Pelicula1");
-        funcionController.agregarFuncion(funcionDTO);
     }
 
     @Test

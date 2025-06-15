@@ -22,16 +22,6 @@ class FuncionControllerTest {
         peliculasController = PeliculasController.getInstancia();
         sucursalController = SucursalController.getInstancia();
 
-        //agregar peliculas
-        peliculasController.agregarPelicula(new Pelicula(1, TipoGenero.Suspenso, "Pelicula1", 180, "Director X", TipoProyeccion.DosD, Arrays.asList("Actriz Principal", "Actor Secundario"), null));
-        peliculasController.agregarPelicula(new Pelicula(3, TipoGenero.Terror, "Pelicula3", 165, "Director J", TipoProyeccion.TresDMax, Arrays.asList("Actriz Principal", "Actor Secundario"), null));
-        peliculasController.agregarPelicula(new Pelicula(4, TipoGenero.Biografica, "Pelicula4", 120, "Director K", TipoProyeccion.CuatroD, Arrays.asList("Actriz Principal", "Actor Secundario"), null));
-        peliculasController.agregarPelicula(new Pelicula(5, TipoGenero.Drama, "Pelicula5", 95, "Director L", TipoProyeccion.DosD, Arrays.asList("Actriz Principal", "Actor Secundario"), null));
-
-        //agregar sucursal
-        sucursalController.agregarSucursal(1, "Barracas", "Av Montes de Oca 1100");
-        sucursalController.agregarSala(1,1, "Sala 1",20);
-
         //agregar funciones
         funcionController.agregarFuncion(new FuncionDTO("Sala 1", "20:20", "10/10/2000", "Pelicula1"));
         funcionController.agregarFuncion(new FuncionDTO("Sala 1", "20:20", "10/10/2000", "Pelicula4"));
