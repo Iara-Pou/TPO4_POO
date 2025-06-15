@@ -72,11 +72,7 @@ public class Funcion {
      * @return
      */
     public int getPeliculaID() {
-        // TODO implement here
-        if (Objects.nonNull(getPelicula().getPeliculaID())) {
-
-        }
-        return 0;
+        return getPelicula().getPeliculaID();
     }
 
     /**
