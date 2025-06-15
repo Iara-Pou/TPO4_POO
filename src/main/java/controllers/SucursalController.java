@@ -10,16 +10,13 @@ import java.util.*;
  *
  */
 public class SucursalController {
-    private List<Sucursal> sucursales;
     private static SucursalController instancia = null;
+    private List<Sucursal> sucursales;
     private List<Sala> salas;
 
     public SucursalController() {
         sucursales = new ArrayList<>();
-        salas = new ArrayList<Sala>();
-
-        salas.add(new Sala(1,"Sala 1",20));
-        sucursales.add(new Sucursal(1, "Barracas", "Av Montes de Oca 1100", (ArrayList<Sala>) this.salas));
+        salas = new ArrayList<>();
     }
 
     public static synchronized SucursalController getInstancia() {
@@ -35,7 +32,12 @@ public class SucursalController {
      * @param dir
      */
     public void agregarSucursal(int id, String denom, String dir) {
-        // TODO implement here
+        for (Sucursal sucursal : sucursales){
+            if (sucursal.getSucursalID() == id) throw new RuntimeException("ERROR EN CREACIÓN. El ID de sucursal no debe repetirse.");
+        }
+
+        Sucursal sucursal = new Sucursal(id, denom, dir, new ArrayList<>());
+        sucursales.add(sucursal);
     }
 
     /**
@@ -45,7 +47,13 @@ public class SucursalController {
      * @param nroasientos
      */
     public void agregarSala(int idSucursal, int salaID, String denom, int nroasientos) {
-        // TODO implement here
+        Sala sala = new Sala(salaID, denom, nroasientos);
+        for (Sucursal sucursal : sucursales){
+            if (sucursal.getSucursalID() == idSucursal){
+                sucursal.getSalas().add(sala);
+                salas.add(sala);
+            }
+        }
     }
 
     /**
@@ -53,12 +61,10 @@ public class SucursalController {
      * @param denominacion
      * @return
      */
-    public Sala obtenerSala(String denominacion)
-    {
+    public Sala obtenerSala(String denominacion){
         Sala sala = null;
 
-        for(Sucursal currentSucursal : this.sucursales)
-        {
+        for(Sucursal currentSucursal : this.sucursales){
             for(Sala currentSala: currentSucursal.getSalas()){
                 if(currentSala.getDenominacion().equals(denominacion)) sala = currentSala;
             }

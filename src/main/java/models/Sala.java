@@ -48,7 +48,7 @@ public class Sala {
      * @return
      */
     public int getAsientos() {
-        return this.asientos;
+        return asientos;
     }
 
     public String getDenominacion() {
