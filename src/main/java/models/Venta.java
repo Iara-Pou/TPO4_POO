@@ -9,6 +9,7 @@ import java.util.*;
  */
 public class Venta {
     public Venta(int ventaID, Date fchVenta, List<Combo> combos, Funcion funcion) {
+        this.ventaID = ventaID;
         this.combos = combos;
         this.funcion = funcion;
         this.fchVenta = fchVenta;
@@ -105,4 +106,15 @@ public class Venta {
     }
 
 
+    public int getVentaID() {
+        return ventaID;
+    }
+
+    public Date getFchVenta() {
+        return fchVenta;
+    }
+
+    public List<Combo> getCombos() {
+        return combos;
+    }
 }

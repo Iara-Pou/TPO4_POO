@@ -17,6 +17,9 @@ public class CondicionesDescuento {
         this.TarjetaDescuento = TarjetaDescuento;
     }
 
+    public CondicionesDescuento() {
+    }
+
     /**
      *
      */

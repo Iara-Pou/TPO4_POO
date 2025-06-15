@@ -3,7 +3,6 @@ package controllers;
 import dtos.FuncionDTO;
 import dtos.VentaDTO;
 import models.Funcion;
-import models.Sucursal;
 import models.Venta;
 import models.enums.TipoGenero;
 import models.enums.TipoTarjeta;
@@ -15,6 +14,7 @@ import java.util.*;
  *
  */
 public class VentasController {
+    private FuncionController funcionController = FuncionController.getInstancia();
     private List<Venta> ventas;
 
     private static VentasController instancia = null;
@@ -32,7 +32,7 @@ public class VentasController {
         return instancia;
     }
 
-    private FuncionController funcionController = FuncionController.getInstancia();
+
 
     public List<Venta> getVentas() {
         return ventas;
@@ -59,7 +59,7 @@ public class VentasController {
      */
     public float recaudacionPorPelicula(int peliculaID) {
         float totalRecaudado = 0.0f;
-        List<Funcion> funciones = funcionController.buscarPeliculaPorFuncion(peliculaID);
+        List<Funcion> funciones = funcionController.buscarFuncionesPorPeliculaID(peliculaID);
 
         if (!funciones.isEmpty()) {
             for (Funcion funcion : funciones) {
@@ -106,7 +106,7 @@ public class VentasController {
      */
     public List<VentaDTO> funcionesVendidasPorGenero(TipoGenero genero) {
         List<VentaDTO> VentaDTOs = new ArrayList<>();
-        List<Funcion> funciones = funcionController.buscarPeliculaPorGenerosFuncion(genero);
+        List<Funcion> funciones = funcionController.buscarFuncionesPorGenero(genero);
         if (funciones.isEmpty()) {
             return VentaDTOs;
         }

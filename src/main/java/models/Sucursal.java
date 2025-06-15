@@ -35,8 +35,7 @@ public class Sucursal {
      * @return
      */
     public int getSucursalID() {
-        // TODO implement here
-        return 0;
+        return sucursalID;
     }
 
     public String getDenominacion() {
