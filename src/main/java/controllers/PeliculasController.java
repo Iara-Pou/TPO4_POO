@@ -2,6 +2,8 @@ package controllers;
 
 import dtos.MostrarPeliculaDTO;
 import dtos.MostrarRecaudacionDTO;
+import dtos.PeliculaDTO;
+import models.CondicionesDescuento;
 import models.Pelicula;
 import models.Venta;
 import models.enums.TipoGenero;
@@ -94,4 +96,92 @@ public class PeliculasController {
         }
     }
 
+    public void registrarPelicula(PeliculaDTO dto) throws Exception {
+        CondicionesDescuento condicionesDescuento = null;
+
+        String dtoGenero = dto.getGeneroID();
+        TipoGenero genero = buscarTipoGenero(dtoGenero);
+        if (genero == null) {
+            throw new Exception("No existe el tipo de genero " + dtoGenero);
+        }
+
+        String dtoProyeccion = dto.getTipo();
+        TipoProyeccion proyeccion = buscarTipoProyeccion(dtoProyeccion);
+
+        if (proyeccion == null) {
+            throw new Exception("No existe el tipo de proyeccion " + dtoProyeccion);
+        }
+
+        String actor1 = dto.getActor1();
+        String actor2 = dto.getActor2();
+        List<String> actores = new ArrayList<>();
+        actores.add(actor1);
+        actores.add(actor2);
+
+        Pelicula pelicula = new Pelicula(
+                genero,
+                dto.getNombrePelicula(),
+                dto.getDuracionEnMinutos(),
+                dto.getDirector(),
+                actores,
+                proyeccion,
+                condicionesDescuento
+        );
+        if (!existePelicula(pelicula.getNombrePelicula())) {
+            peliculas.add(pelicula);
+        } else {
+            throw new Exception("La película ya existe");
+        }
+    }
+
+    public TipoGenero buscarTipoGenero(String genero)   {
+        for (TipoGenero opcion : TipoGenero.values()) {
+            if (opcion.name().equalsIgnoreCase(genero)) {
+                return opcion;
+            }
+        }
+        return null;
+    }
+
+    public TipoProyeccion buscarTipoProyeccion(String proyeccion)   {
+        for (TipoProyeccion opcion : TipoProyeccion.values()) {
+            if (opcion.name().equalsIgnoreCase(proyeccion)) {
+                return opcion;
+            }
+        }
+        return null;
+    }
+
+    public List<Pelicula> consultarPeliculaPorNombre(String nombre) {
+        List<Pelicula> peliculasConsultadas = new ArrayList<>();
+        for (Pelicula pelicula : peliculas) {
+            if (pelicula.getNombrePelicula().equals(nombre)) {
+                peliculasConsultadas.add(pelicula);
+            }
+        }
+        return peliculasConsultadas;
+    }
+
+    public boolean existePelicula(String nombre) {
+        for (Pelicula pelicula : peliculas) {
+            if (pelicula.getNombrePelicula().equals(nombre)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public List<Pelicula> consultarPeliculaPorGenero(TipoGenero genero) {
+        List<Pelicula> peliculasConsultadas = new ArrayList<>();
+        for (Pelicula pelicula : peliculas) {
+            if (pelicula.getTipo().equals(genero)) {
+                peliculasConsultadas.add(pelicula);
+            }
+        }
+        return peliculasConsultadas;
+    }
+
+    public List<Pelicula> getPeliculas() {
+        return peliculas;
+    }
 }

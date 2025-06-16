@@ -2,6 +2,7 @@ package controllers;
 
 import dtos.MostrarPeliculaDTO;
 import dtos.MostrarRecaudacionDTO;
+import dtos.PeliculaDTO;
 import models.Pelicula;
 import models.enums.TipoGenero;
 import models.enums.TipoProyeccion;
@@ -16,6 +17,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class PeliculasControllerTest {
     private PeliculasController controller;
+    private PeliculaDTO peliculaDTO;
 
     @BeforeEach
     void setUp() {
@@ -61,9 +63,31 @@ class PeliculasControllerTest {
         }
     }
 
+    @Test
+    void registrarPelicula() throws Exception {
+        int cantidadInicial = controller.getPeliculas().size();
+
+        controller.registrarPelicula(peliculaDTO);
+
+        List<Pelicula> peliculas = controller.getPeliculas();
+        assertEquals(cantidadInicial + 1, peliculas.size());
+
+        Pelicula pelicula = peliculas.get(peliculas.size() - 1);
+        assertEquals("Seven", pelicula.getNombrePelicula());
+        assertEquals(156, pelicula.getDuracionEnMinutos());
+        assertEquals("David Fincher", pelicula.getDirector());
+        assertEquals(TipoGenero.Suspenso, pelicula.getGeneroID());
+        assertEquals(TipoProyeccion.DosD, pelicula.getTipo());
+        assertNotEquals("Jonathan Demme", pelicula.getDirector());
+        assertTrue(pelicula.getActores().contains("Brad Pitt"));
+        assertFalse(pelicula.getActores().contains("Alicia Silverstone"));
+        assertTrue(pelicula.getActores().contains("Morgan Freeman"));
+        assertDoesNotThrow(() -> controller.getPeliculas());
+    }
+
+
     @AfterEach
     void tearDown() {
 
     }
-
 }
