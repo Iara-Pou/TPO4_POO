@@ -9,14 +9,9 @@ import models.enums.TipoTarjeta;
 
 import java.util.*;
 
-
-/**
- *
- */
 public class VentasController {
     private FuncionController funcionController = FuncionController.getInstancia();
     private List<Venta> ventas;
-
     private static VentasController instancia = null;
 
     public VentasController() {
@@ -31,8 +26,6 @@ public class VentasController {
         }
         return instancia;
     }
-
-
 
     public List<Venta> getVentas() {
         return ventas;
@@ -82,9 +75,6 @@ public class VentasController {
         return 0.0f;
     }
 
-    /**
-     *
-     */
     public void comboMasVendido() {
         // TODO implement here
     }
@@ -100,7 +90,6 @@ public class VentasController {
 
     /**
      * View a desarrollar
-     *
      * @param genero
      * @return
      */
@@ -126,5 +115,4 @@ public class VentasController {
     public FuncionDTO modelFuncionToDto(Funcion funcion) {
         return new FuncionDTO(funcion);
     }
-
 }

@@ -10,9 +10,11 @@ public class VentaDTO {
     private int ventaID;
     private Date fchVenta;
     private List<Combo> combos;
+
     public VentaDTO(FuncionDTO funcion) {
 
     }
+
     public VentaDTO(Venta venta) {
         this.ventaID = venta.getVentaID();
         this.fchVenta = venta.getFchVenta();
