@@ -21,7 +21,7 @@ public class RegistrarPelicula extends JFrame {
     private JButton registrar;
     private JButton cancelar;
 
-    public RegistrarPelicula() {
+    public RegistrarPelicula(String genero) {
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLayout(new GridLayout(8,2));
         setSize(900,500);
@@ -32,6 +32,8 @@ public class RegistrarPelicula extends JFrame {
 
         add(new JLabel("Género de la película (Drama, Romance, Terror, Biográfica, Suspenso): "));
         this.generoID = new JTextField();
+        generoID.setText(genero);
+        generoID.setEnabled(false);
         add(this.generoID);
 
         add(new JLabel("Nombre de la película: "));
@@ -114,9 +116,5 @@ public class RegistrarPelicula extends JFrame {
         actor1.setText("");
         actor2.setText("");
         tipo.setText("");
-    }
-
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(RegistrarPelicula::new);
     }
 }
