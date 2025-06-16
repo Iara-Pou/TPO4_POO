@@ -1,8 +1,5 @@
 package models;
 
-/**
- *
- */
 public class Combo {
 
     private int comboID;

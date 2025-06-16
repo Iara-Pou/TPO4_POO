@@ -12,6 +12,7 @@ public class ConsultarPeliculas extends JFrame {
     private DefaultTableModel tablaModelo;
     private JTable tablaPeliculas;
     PeliculasController peliculasController = PeliculasController.getInstancia();
+
     public ConsultarPeliculas(String genero) {
         setTitle("Mostrar películas - " + genero);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -30,7 +31,7 @@ public class ConsultarPeliculas extends JFrame {
                 tablaModelo.addRow(new Object[]{
                         peliculaDTO.getNombrePelicula(),
                         peliculaDTO.getDuracionEnMinutos(),
-                        parseList(peliculaDTO.getActores().subList(0,2)),
+                        parseList(peliculaDTO.getActores().subList(0, 2)),
                         peliculaDTO.getDirector(),
                         peliculaDTO.getTipo()
                 });
@@ -43,11 +44,11 @@ public class ConsultarPeliculas extends JFrame {
         setVisible(true);
     }
 
-    public String parseList(List<String> actores){
+    public String parseList(List<String> actores) {
         boolean isFirst = true;
         StringBuilder resultado = new StringBuilder();
-        for (String actor: actores){
-            if (!isFirst){
+        for (String actor : actores) {
+            if (!isFirst) {
                 resultado.append(", ").append(actor);
                 continue;
             }

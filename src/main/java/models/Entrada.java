@@ -1,8 +1,5 @@
 package models;
 
-/**
- *
- */
 public class Entrada {
     public Entrada(int nroAsiento, Funcion funcion, float precio) {
         this.funcion = funcion;
@@ -11,7 +8,6 @@ public class Entrada {
     }
 
     public Entrada() {
-
     }
 
     public float getPrecio() {
@@ -20,27 +16,16 @@ public class Entrada {
 
     private float precio;
 
-    /**
-     *
-     */
     private int nroAsiento;
 
-    /**
-     *
-     */
     public Funcion funcion;
-
 
     public int getFuncionID() {
         // TODO implement here
         return 0;
     }
 
-    /**
-     *
-     */
     public void getPeliculaID() {
         // TODO implement here
     }
-
 }

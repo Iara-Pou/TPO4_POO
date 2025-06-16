@@ -11,9 +11,6 @@ import models.enums.TipoProyeccion;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-/**
- *
- */
 public class FuncionController {
 
     private static List<Funcion> funciones;
@@ -21,7 +18,7 @@ public class FuncionController {
 
     private FuncionController() {
         funciones = new ArrayList<>();
-        funciones.add(new Funcion(new Date(), UUID.randomUUID() , "11:00", new ArrayList<Entrada>(), new Sala(0, null, 0),
+        funciones.add(new Funcion(new Date(), UUID.randomUUID(), "11:00", new ArrayList<Entrada>(), new Sala(0, null, 0),
                 new Pelicula(1, TipoGenero.Terror, "steven spielberg", 120, "Tiburon", TipoProyeccion.DosD, new ArrayList<>(), null)));
 
     }
@@ -32,9 +29,7 @@ public class FuncionController {
         }
         return instancia;
     }
-    /**
-     *
-     */
+
     public void ABM() {
         // TODO implement here
     }
@@ -94,12 +89,12 @@ public class FuncionController {
 
     /**
      * Agrega la función a la lista de funciones
+     *
      * @param funcionDTO
      * @return
      * @throws Exception
      */
-    public String agregarFuncion(FuncionDTO funcionDTO) throws Exception
-    {
+    public String agregarFuncion(FuncionDTO funcionDTO) throws Exception {
         SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
         SucursalController sucursales = SucursalController.getInstancia();
         PeliculasController peliculas = PeliculasController.getInstancia();
@@ -110,16 +105,16 @@ public class FuncionController {
         Sala sala = sucursales.obtenerSala(funcionDTO.getSala());
         Pelicula pelicula = peliculas.obtenerPelicula(funcionDTO.getPelicula());
 
-        if(sala == null) throw new Exception("La sala especficada no existe o no está disponible");
-        if(pelicula == null) throw new Exception("La pelicula no fue encontrada");
+        if (sala == null) throw new Exception("La sala especficada no existe o no está disponible");
+        if (pelicula == null) throw new Exception("La pelicula no fue encontrada");
 
         Funcion funcion = new Funcion(
-            fecha,
-            funcionID,
-            funcionDTO.getHora(),
-            new ArrayList<Entrada>(),
-            sala,
-            pelicula
+                fecha,
+                funcionID,
+                funcionDTO.getHora(),
+                new ArrayList<Entrada>(),
+                sala,
+                pelicula
         );
 
         this.funciones.add(funcion);

@@ -2,10 +2,19 @@ package models;
 
 import java.util.*;
 
-/**
- *
- */
 public class Funcion {
+    private Pelicula pelicula;
+
+    private UUID funcionID;
+
+    private String horario;
+
+    private Date fecha;
+
+    private List<Entrada> entradas;
+
+    private Sala sala;
+
     public Funcion(Date fecha, UUID funcionID, String horario, List<Entrada> entradas, Sala sala, Pelicula pelicula) {
         this.entradas = entradas;
         this.fecha = fecha;
@@ -19,38 +28,9 @@ public class Funcion {
         return pelicula;
     }
 
-    /*
-     *
-     *
-     */
-    private Pelicula pelicula;
-
-    /**
-     *
-     */
-    private UUID funcionID;
-
-    /**
-     *
-     */
-    private String horario;
-
-    /**
-     *
-     */
-    private Date fecha;
-
     public List<Entrada> getEntradas() {
         return entradas;
     }
-
-    /**
-     *
-     */
-    private List<Entrada> entradas;
-
-    private Sala sala;
-
 
     /**
      * @return
@@ -75,11 +55,7 @@ public class Funcion {
         return getPelicula().getPeliculaID();
     }
 
-    /**
-     *
-     */
     public int getCantidadAsientosDisponibles() {
-
         return 0;
         // TODO implement here
     }
@@ -88,23 +64,17 @@ public class Funcion {
      * @return
      */
     public UUID getFuncionID() {
-
         return this.funcionID;
     }
 
-    /**
-     *
-     */
     public Date getFecha() {
         return fecha;
-        // TODO implement here
     }
 
     public float calcularMontoPorEntradaDeLaPelicula() {
         float total = 0.0f;
         for (Entrada entrada : getEntradas()) {
-            total = total + (entrada.getPrecio() -
-                    (entrada.getPrecio() * pelicula.getCondicionesDescuento().getDescuento()));
+            total = total + (entrada.getPrecio() - (entrada.getPrecio() * pelicula.getCondicionesDescuento().getDescuento()));
         }
         return total;
     }

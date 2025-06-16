@@ -5,10 +5,6 @@ import models.Sucursal;
 
 import java.util.*;
 
-
-/**
- *
- */
 public class SucursalController {
     private static SucursalController instancia = null;
     private List<Sucursal> sucursales;
@@ -18,7 +14,7 @@ public class SucursalController {
         sucursales = new ArrayList<>();
         salas = new ArrayList<>();
 
-        salas.add(new Sala(1,"Sala 1",20));
+        salas.add(new Sala(1, "Sala 1", 20));
         sucursales.add(new Sucursal(1, "Barracas", "Av Montes de Oca 1100", (ArrayList<Sala>) this.salas));
     }
 
@@ -35,8 +31,9 @@ public class SucursalController {
      * @param dir
      */
     public void agregarSucursal(int id, String denom, String dir) {
-        for (Sucursal sucursal : sucursales){
-            if (sucursal.getSucursalID() == id) throw new RuntimeException("ERROR EN CREACIÓN. El ID de sucursal no debe repetirse.");
+        for (Sucursal sucursal : sucursales) {
+            if (sucursal.getSucursalID() == id)
+                throw new RuntimeException("ERROR EN CREACIÓN. El ID de sucursal no debe repetirse.");
         }
 
         Sucursal sucursal = new Sucursal(id, denom, dir, new ArrayList<>());
@@ -51,8 +48,8 @@ public class SucursalController {
      */
     public void agregarSala(int idSucursal, int salaID, String denom, int nroasientos) {
         Sala sala = new Sala(salaID, denom, nroasientos);
-        for (Sucursal sucursal : sucursales){
-            if (sucursal.getSucursalID() == idSucursal){
+        for (Sucursal sucursal : sucursales) {
+            if (sucursal.getSucursalID() == idSucursal) {
                 sucursal.getSalas().add(sala);
                 salas.add(sala);
             }
@@ -61,19 +58,18 @@ public class SucursalController {
 
     /**
      * Obtiene una sala en base a una denominación
+     *
      * @param denominacion
      * @return
      */
-    public Sala obtenerSala(String denominacion){
+    public Sala obtenerSala(String denominacion) {
         Sala sala = null;
 
-        for(Sucursal currentSucursal : this.sucursales){
-            for(Sala currentSala: currentSucursal.getSalas()){
-                if(currentSala.getDenominacion().equals(denominacion)) sala = currentSala;
+        for (Sucursal currentSucursal : this.sucursales) {
+            for (Sala currentSala : currentSucursal.getSalas()) {
+                if (currentSala.getDenominacion().equals(denominacion)) sala = currentSala;
             }
         }
-
         return sala;
     }
-
 }
