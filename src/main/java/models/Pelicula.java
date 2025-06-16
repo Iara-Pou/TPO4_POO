@@ -34,6 +34,16 @@ public class Pelicula {
         this.condicionesDescuento = descuento;
     }
 
+    public Pelicula(TipoGenero generoID, String nombrePelicula, int duracionEnMinutos, String director, List<String> actores, TipoProyeccion tipo, CondicionesDescuento condicionesDescuento) {
+        this.generoID = generoID;
+        this.nombrePelicula = nombrePelicula;
+        this.duracionEnMinutos = duracionEnMinutos;
+        this.director = director;
+        this.actores = actores;
+        this.tipo = tipo;
+        this.condicionesDescuento = condicionesDescuento;
+    }
+
     public TipoGenero getGeneroID() {
         return generoID;
     }
