@@ -5,17 +5,10 @@ import dtos.MostrarRecaudacionDTO;
 import dtos.PeliculaDTO;
 import models.CondicionesDescuento;
 import models.Pelicula;
-import models.Venta;
 import models.enums.TipoGenero;
 import models.enums.TipoProyeccion;
 
 import java.util.*;
-import java.util.stream.Collectors;
-
-
-/**
- *
- */
 
 public class PeliculasController {
     private List<Pelicula> peliculas;
@@ -39,9 +32,6 @@ public class PeliculasController {
         return instancia;
     }
 
-    /**
-     *
-     */
     public void ABM() {
         // TODO implement here
     }
@@ -79,19 +69,17 @@ public class PeliculasController {
             peliculasConMayorRecaudacion.add(mostrarRecaudacionDTO);
         }
 
-        // Ordenar por recaudación descendente
         peliculasConMayorRecaudacion.sort((a, b) -> Float.compare(b.getTotalRecaudacion(), a.getTotalRecaudacion()));
-
         // Retornar solo las primeras 10 o menos si hay menos de 10
-        if (peliculasConMayorRecaudacion.size() > 10){
-            peliculasConMayorRecaudacion = peliculasConMayorRecaudacion.subList(0,10);
+        if (peliculasConMayorRecaudacion.size() > 10) {
+            peliculasConMayorRecaudacion = peliculasConMayorRecaudacion.subList(0, 10);
         }
 
         return peliculasConMayorRecaudacion;
     }
 
-    public void agregarPelicula(Pelicula pelicula){
-        if(obtenerPelicula(pelicula.getNombrePelicula()) == null) {
+    public void agregarPelicula(Pelicula pelicula) {
+        if (obtenerPelicula(pelicula.getNombrePelicula()) == null) {
             peliculas.add(pelicula);
         }
     }

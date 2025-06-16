@@ -9,7 +9,7 @@ public class MostrarPeliculaDTO {
     private String nombrePelicula;
     private String tipo;
 
-    public MostrarPeliculaDTO(String director, int duracionEnMinutos, String nombrePelicula, String tipo, List<String> actores){
+    public MostrarPeliculaDTO(String director, int duracionEnMinutos, String nombrePelicula, String tipo, List<String> actores) {
         this.actores = actores;
         this.tipo = tipo;
         this.duracionEnMinutos = duracionEnMinutos;

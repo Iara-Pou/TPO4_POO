@@ -4,10 +4,18 @@ import models.enums.TipoTarjeta;
 
 import java.util.*;
 
-/**
- *
- */
 public class Venta {
+
+    private int ventaID;
+
+    private Date fchVenta;
+
+    private List<Combo> combos;
+
+    private Funcion funcion;
+
+    private TarjetaDescuento tarjetaDescuento;
+
     public Venta(int ventaID, Date fchVenta, List<Combo> combos, Funcion funcion) {
         this.ventaID = ventaID;
         this.combos = combos;
@@ -15,21 +23,29 @@ public class Venta {
         this.fchVenta = fchVenta;
     }
 
+    public float calcularMontoPorComboDeVenta() {
+        float total = 0.0f;
+        for (Combo combo : getListaComboID()) {
+            total += (combo.getPrecio() - (combo.getPrecio() * CondicionesDescuento.getDescuentoPorTarjeta(tarjetaDescuento.getTipoTarjeta())));
+        }
+        return total;
+    }
 
-    /**
-     *
-     */
-    private int ventaID;
+    public float calcularMontoDeLaVentaPorFuncionCombos() {
+        return funcion.calcularMontoPorEntradaDeLaPelicula() + calcularMontoPorComboDeVenta();
+    }
 
-    /**
-     *
-     */
-    private Date fchVenta;
+    public int getVentaID() {
+        return ventaID;
+    }
 
-    /**
-     *
-     */
-    private List<Combo> combos;
+    public Date getFchVenta() {
+        return fchVenta;
+    }
+
+    public List<Combo> getCombos() {
+        return combos;
+    }
 
     public Funcion getFuncion() {
         return funcion;
@@ -39,23 +55,15 @@ public class Venta {
         this.funcion = funcion;
     }
 
-    private Funcion funcion;
-
     public TarjetaDescuento getTarjetaDescuento() {
         return tarjetaDescuento;
     }
 
     /**
-     *
-     */
-    private TarjetaDescuento tarjetaDescuento;
-
-    /**
      * @return
      */
-    public int getFuncionID() {
-        // TODO implement here
-        return 0;
+    public UUID getFuncionID() {
+        return funcion.getFuncionID();
     }
 
     /**
@@ -66,9 +74,6 @@ public class Venta {
         return 0.0f;
     }
 
-    /**
-     *
-     */
     public int getPeliculaID() {
         // TODO implement here
         return 0;
@@ -82,39 +87,8 @@ public class Venta {
         return null;
     }
 
-    /**
-     *
-     */
     public List<Combo> getListaComboID() {
         return combos;
-
         // TODO implement here
-    }
-
-    public float calcularMontoPorComboDeVenta() {
-        float total = 0.0f;
-        for (Combo combo : getListaComboID()) {
-            total += (combo.getPrecio() - (combo.getPrecio() *
-                    CondicionesDescuento.getDescuentoPorTarjeta(tarjetaDescuento.getTipoTarjeta())));
-        }
-        return total;
-    }
-
-
-    public float calcularMontoDeLaVentaPorFuncionCombos() {
-        return funcion.calcularMontoPorEntradaDeLaPelicula() + calcularMontoPorComboDeVenta();
-    }
-
-
-    public int getVentaID() {
-        return ventaID;
-    }
-
-    public Date getFchVenta() {
-        return fchVenta;
-    }
-
-    public List<Combo> getCombos() {
-        return combos;
     }
 }

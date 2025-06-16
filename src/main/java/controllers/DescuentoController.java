@@ -6,10 +6,6 @@ import models.enums.TipoTarjeta;
 
 import java.util.*;
 
-
-/**
- *
- */
 public class DescuentoController {
     private List<CondicionesDescuento> descuentos;
     private static DescuentoController instancia = null;
@@ -27,9 +23,6 @@ public class DescuentoController {
         return instancia;
     }
 
-    /**
-     *
-     */
     public void ABM() {
     }
 

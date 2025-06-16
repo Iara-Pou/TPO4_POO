@@ -20,7 +20,7 @@ public class RegistrarFuncion extends JFrame {
     public RegistrarFuncion() {
         setTitle("BLOCKBUSTER - Agregar función");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLayout(new GridLayout(5,2));
+        setLayout(new GridLayout(5, 2));
         setSize(500, 400);
         setVisible(true);
 
@@ -50,8 +50,8 @@ public class RegistrarFuncion extends JFrame {
         cancelar.addActionListener(e -> dispose());
     }
 
-    private void guardar(){
-        try{
+    private void guardar() {
+        try {
             this.controller = FuncionController.getInstancia();
             FuncionDTO funcion = new FuncionDTO(
                     this.sala.getText(),
@@ -61,10 +61,9 @@ public class RegistrarFuncion extends JFrame {
             );
 
             String uuid = controller.agregarFuncion(funcion);
-            JOptionPane.showMessageDialog(null,"Función guardada correctamente, funcionID: " + uuid);
+            JOptionPane.showMessageDialog(null, "Función guardada correctamente, funcionID: " + uuid);
             dispose();
-        }
-        catch(Exception e){
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
 

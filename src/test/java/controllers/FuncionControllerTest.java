@@ -2,12 +2,9 @@ package controllers;
 
 import dtos.FuncionDTO;
 import models.Funcion;
-import models.Pelicula;
 import models.enums.TipoGenero;
-import models.enums.TipoProyeccion;
 import org.junit.jupiter.api.*;
 
-import java.util.Arrays;
 import java.util.List;
 
 class FuncionControllerTest {
