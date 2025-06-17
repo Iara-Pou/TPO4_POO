@@ -79,7 +79,7 @@ public class VentasController {
         // TODO implement here
     }
 
-    private Venta buscarVentaPorFuncion(Funcion funcion) {
+    public Venta buscarVentaPorFuncion(Funcion funcion) {
         for (Venta venta : getVentas()) {
             if (Objects.equals(funcion, venta.getFuncion())) {
                 return venta;
