@@ -14,25 +14,14 @@ public class Sala {
         this.salaID = salaID;
     }
 
-    /**
-     * @return
-     */
     public int getSucursalID() {
-        // TODO implement here
         return 0;
     }
 
-    /**
-     * @return
-     */
     public int getSalaID() {
-        // TODO implement here
         return 0;
     }
 
-    /**
-     * @return
-     */
     public int getAsientos() {
         return asientos;
     }

@@ -9,9 +9,9 @@ public class Sucursal {
 
     private String direccion;
 
-    private ArrayList<Sala> salas;
+    private List<Sala> salas;
 
-    public Sucursal(int sucursalID, String denominacion, String direccion, ArrayList<Sala> sala) {
+    public Sucursal(int sucursalID, String denominacion, String direccion, List<Sala> sala) {
         this.denominacion = denominacion;
         this.direccion = direccion;
         this.sucursalID = sucursalID;
@@ -33,7 +33,7 @@ public class Sucursal {
         return direccion;
     }
 
-    public ArrayList<Sala> getSalas() {
+    public List<Sala> getSalas() {
         return salas;
     }
 }

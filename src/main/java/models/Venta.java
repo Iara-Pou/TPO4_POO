@@ -59,36 +59,23 @@ public class Venta {
         return tarjetaDescuento;
     }
 
-    /**
-     * @return
-     */
     public UUID getFuncionID() {
         return funcion.getFuncionID();
     }
 
-    /**
-     * @return
-     */
     public float getTotal() {
-        // TODO implement here
         return 0.0f;
     }
 
     public int getPeliculaID() {
-        // TODO implement here
         return 0;
     }
 
-    /**
-     * @return
-     */
     public TipoTarjeta getTipoTarjeta() {
-        // TODO implement here
         return null;
     }
 
     public List<Combo> getListaComboID() {
         return combos;
-        // TODO implement here
     }
 }

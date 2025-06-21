@@ -35,21 +35,10 @@ public class VentasController {
         this.ventas = ventas;
     }
 
-    /**
-     * @param funcionID
-     * @return
-     */
     public float recaudacionPorFuncion(int funcionID) {
-        // TODO implement here
         return 0.0f;
     }
 
-    /**
-     * Caso de secuencia a desarrollar
-     *
-     * @param peliculaID
-     * @return
-     */
     public float recaudacionPorPelicula(int peliculaID) {
         float totalRecaudado = 0.0f;
         List<Funcion> funciones = funcionController.buscarFuncionesPorPeliculaID(peliculaID);
@@ -66,17 +55,11 @@ public class VentasController {
         return totalRecaudado;
     }
 
-    /**
-     * @param tipoTarjeta
-     * @return
-     */
     public float recaudacionPorTarjetaDescuento(TipoTarjeta tipoTarjeta) {
-        // TODO implement here
         return 0.0f;
     }
 
     public void comboMasVendido() {
-        // TODO implement here
     }
 
     public Venta buscarVentaPorFuncion(Funcion funcion) {
@@ -88,11 +71,6 @@ public class VentasController {
         return null;
     }
 
-    /**
-     * View a desarrollar
-     * @param genero
-     * @return
-     */
     public List<VentaDTO> funcionesVendidasPorGenero(TipoGenero genero) {
         List<VentaDTO> VentaDTOs = new ArrayList<>();
         List<Funcion> funciones = funcionController.buscarFuncionesPorGenero(genero);

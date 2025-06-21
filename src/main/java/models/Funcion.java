@@ -32,37 +32,22 @@ public class Funcion {
         return entradas;
     }
 
-    /**
-     * @return
-     */
     public int getSalaID() {
-        // TODO implement here
         return 0;
     }
 
-    /**
-     * @return
-     */
     public int getSucursalID() {
-        // TODO implement here
         return 0;
     }
 
-    /**
-     * @return
-     */
     public int getPeliculaID() {
         return getPelicula().getPeliculaID();
     }
 
     public int getCantidadAsientosDisponibles() {
         return 0;
-        // TODO implement here
     }
 
-    /**
-     * @return
-     */
     public UUID getFuncionID() {
         return this.funcionID;
     }

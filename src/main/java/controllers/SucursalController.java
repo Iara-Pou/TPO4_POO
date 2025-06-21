@@ -25,27 +25,16 @@ public class SucursalController {
         return instancia;
     }
 
-    /**
-     * @param id
-     * @param denom
-     * @param dir
-     */
-    public void agregarSucursal(int id, String denom, String dir) {
+    public void agregarSucursal(int id, String denominacion, String dir) {
         for (Sucursal sucursal : sucursales) {
             if (sucursal.getSucursalID() == id)
                 throw new RuntimeException("ERROR EN CREACIÓN. El ID de sucursal no debe repetirse.");
         }
 
-        Sucursal sucursal = new Sucursal(id, denom, dir, new ArrayList<>());
+        Sucursal sucursal = new Sucursal(id, denominacion, dir, new ArrayList<>());
         sucursales.add(sucursal);
     }
 
-    /**
-     * @param idSucursal
-     * @param salaID
-     * @param denom
-     * @param nroasientos
-     */
     public void agregarSala(int idSucursal, int salaID, String denom, int nroasientos) {
         Sala sala = new Sala(salaID, denom, nroasientos);
         for (Sucursal sucursal : sucursales) {
@@ -56,12 +45,6 @@ public class SucursalController {
         }
     }
 
-    /**
-     * Obtiene una sala en base a una denominación
-     *
-     * @param denominacion
-     * @return
-     */
     public Sala obtenerSala(String denominacion) {
         Sala sala = null;
 

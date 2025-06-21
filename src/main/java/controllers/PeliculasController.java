@@ -33,7 +33,6 @@ public class PeliculasController {
     }
 
     public void ABM() {
-        // TODO implement here
     }
 
     public List<MostrarPeliculaDTO> getPeliculasByGenero(String genero) {
@@ -78,12 +77,6 @@ public class PeliculasController {
         return peliculasConMayorRecaudacion;
     }
 
-    public void agregarPelicula(Pelicula pelicula) {
-        if (obtenerPelicula(pelicula.getNombrePelicula()) == null) {
-            peliculas.add(pelicula);
-        }
-    }
-
     public void registrarPelicula(PeliculaDTO dto) throws Exception {
         CondicionesDescuento condicionesDescuento = null;
 
@@ -122,7 +115,7 @@ public class PeliculasController {
         }
     }
 
-    public TipoGenero buscarTipoGenero(String genero)   {
+    public TipoGenero buscarTipoGenero(String genero) {
         for (TipoGenero opcion : TipoGenero.values()) {
             if (opcion.name().equalsIgnoreCase(genero)) {
                 return opcion;
@@ -131,23 +124,13 @@ public class PeliculasController {
         return null;
     }
 
-    public TipoProyeccion buscarTipoProyeccion(String proyeccion)   {
+    public TipoProyeccion buscarTipoProyeccion(String proyeccion) {
         for (TipoProyeccion opcion : TipoProyeccion.values()) {
             if (opcion.name().equalsIgnoreCase(proyeccion)) {
                 return opcion;
             }
         }
         return null;
-    }
-
-    public List<Pelicula> consultarPeliculaPorNombre(String nombre) {
-        List<Pelicula> peliculasConsultadas = new ArrayList<>();
-        for (Pelicula pelicula : peliculas) {
-            if (pelicula.getNombrePelicula().equals(nombre)) {
-                peliculasConsultadas.add(pelicula);
-            }
-        }
-        return peliculasConsultadas;
     }
 
     public boolean existePelicula(String nombre) {
@@ -157,16 +140,6 @@ public class PeliculasController {
             }
         }
         return false;
-    }
-
-    public List<Pelicula> consultarPeliculaPorGenero(TipoGenero genero) {
-        List<Pelicula> peliculasConsultadas = new ArrayList<>();
-        for (Pelicula pelicula : peliculas) {
-            if (pelicula.getTipo().equals(genero)) {
-                peliculasConsultadas.add(pelicula);
-            }
-        }
-        return peliculasConsultadas;
     }
 
     public List<Pelicula> getPeliculas() {

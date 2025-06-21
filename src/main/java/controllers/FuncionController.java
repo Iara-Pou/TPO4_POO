@@ -31,39 +31,21 @@ public class FuncionController {
     }
 
     public void ABM() {
-        // TODO implement here
     }
 
-    /**
-     * @param funcionID
-     * @return
-     */
     public int obtenerAsientosDisponiblePorFuncion(int funcionID) {
         return -1;
     }
 
-    /**
-     * @param fchFuncion
-     * @return
-     */
     public List<FuncionDTO> getListaFunciones(Date fchFuncion) {
-        // TODO implement here
         return null;
     }
 
-    /**
-     * @return
-     */
     public int peliculaMasVista() {
-        // TODO implement here
         return 0;
     }
 
-    /**
-     * @return
-     */
     public int diaDeLaSemanaConMenorVentas() {
-        // TODO implement here
         return 0;
     }
 
@@ -87,13 +69,6 @@ public class FuncionController {
         return funcionesDeLaPelicula;
     }
 
-    /**
-     * Agrega la función a la lista de funciones
-     *
-     * @param funcionDTO
-     * @return
-     * @throws Exception
-     */
     public String agregarFuncion(FuncionDTO funcionDTO) throws Exception {
         SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
         SucursalController sucursales = SucursalController.getInstancia();

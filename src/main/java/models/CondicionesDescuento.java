@@ -5,7 +5,7 @@ import models.enums.TipoTarjeta;
 import java.util.*;
 
 public class CondicionesDescuento {
-    public CondicionesDescuento(Date fchDesde, Date fchHasta, int diaSemana, float porcentaje, TipoTarjeta tipoTarjeta, ArrayList<TarjetaDescuento> TarjetaDescuento) {
+    public CondicionesDescuento(Date fchDesde, Date fchHasta, int diaSemana, float porcentaje, TipoTarjeta tipoTarjeta, List<TarjetaDescuento> TarjetaDescuento) {
         this.diaSemana = diaSemana;
         this.fchDesde = fchDesde;
         this.fchHasta = fchHasta;
@@ -16,12 +16,12 @@ public class CondicionesDescuento {
 
     public CondicionesDescuento() {
     }
-
     private Date fchDesde;
-
     private Date fchHasta;
-
     private int diaSemana;
+    private float porcentaje;
+    private TipoTarjeta tipoTarjeta;
+    private List<TarjetaDescuento> TarjetaDescuento;
 
     public float getPorcentaje() {
         return porcentaje;
@@ -47,15 +47,10 @@ public class CondicionesDescuento {
         return tipoTarjeta;
     }
 
-    private float porcentaje;
-
-    private TipoTarjeta tipoTarjeta;
-
     public List<TarjetaDescuento> getTarjetaDescuento() {
         return TarjetaDescuento;
     }
 
-    private List<TarjetaDescuento> TarjetaDescuento;
 
     public float getDescuento() {
         float descuento = 0.0f;
